@@ -1,14 +1,14 @@
 // import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import "./styles/App.scss";
+import "./styles/app.scss";
 import NavBar from "./components/navigation/NavBar";
 import Products from "./components/pages/Products";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import ShoppingCart from "./components/pages/ShoppingCart";
 import ContactUs from "./components/pages/Contact";
-import Footer from "./components/Footer";
+import Footer from "./components/navigation/Footer";
 
 export default function App() {
   return (

@@ -1,0 +1,31 @@
+.products-cont {
+  font-family: "Playfair";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  width: auto;
+  height: 70vh;
+
+  .search {
+    width: 30vw;
+    height: 4vh;
+    font-family: "Playfair";
+    margin: 1%;
+    border: 1px solid $darkgrey;
+    border-radius: 5px;
+  }
+
+  .search-results {
+    font-size: 20px;
+    // This needs to be hidden until there are acutally search results..
+    padding-top: 1%;
+  }
+  .product-card-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1% 5% 1% 5%;
+  }
+}

@@ -19,29 +19,5 @@
     display: flex;
     justify-content: space-between;
     width: 50vw;
-
-    button {
-      font-family: "Playfair";
-      font-size: 15px;
-      background-color: $teal;
-      width: 9vw;
-      padding: 1% 2%;
-      border: 1px solid $darkgrey;
-      border-radius: 5px;
-
-      a {
-        text-decoration: none;
-        color: $white;
-
-        &:visited {
-          text-decoration: none;
-        }
-      }
-      &:hover {
-        border-radius: 15px;
-        color: $white;
-        background-color: $mediumteal;
-      }
-    }
   }
 }

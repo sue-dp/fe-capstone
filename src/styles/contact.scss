@@ -1,0 +1,60 @@
+.contact-cont {
+  font-family: "Playfair";
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 60vh;
+    border: 1px solid $darkgrey;
+    border-radius: 5px;
+    background-color: $lightgrey;
+
+    h3 {
+      margin: 1%;
+    }
+
+    h5 {
+      margin: 1%;
+    }
+
+    input {
+      width: 30vw;
+      height: 5vh;
+      font-family: "Playfair";
+      margin: 1%;
+      border-radius: 5px;
+    }
+
+    textarea {
+      width: 30vw;
+      height: 10vh;
+      font-family: "Playfair";
+      margin: 1%;
+      border-radius: 5px;
+    }
+
+    .submit {
+      width: 15vw;
+      height: 5vh;
+      font-family: "Playfair";
+      margin: 1%;
+      border-radius: 5px;
+      background-color: $teal;
+      color: $white;
+
+      &:hover {
+        border-radius: 15px;
+        color: $white;
+        background-color: $mediumteal;
+      }
+    }
+  }
+}

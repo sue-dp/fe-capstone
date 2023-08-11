@@ -1,15 +1,17 @@
-import BlackLogo from "../images/blackBackgroundLogo.png";
+export default function ProductCard({ data }) {
+  const truncate = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.slice(0, maxLength) + "...";
+  };
 
-export default function ProductCard() {
   return (
     <div className="card-cont">
-      <a className="name-and-link">Product Name</a>
-      <img src={BlackLogo} alt="Silk Logo with Moth" />
-      <div className="description">
-        Product Description goes here and it will be a paragraph or a few
-        sentences that need to fit in this space....
-      </div>
-      <div className="price">Price</div>
+      <p className="name-and-link">{truncate(data.title, 25)}</p>
+      <img src={data.image} alt="Product" />
+      <div className="description">{truncate(data.description, 50)}</div>
+      <div className="price">${data.price}</div>
       <button className="add-cart-btn">Add to Cart</button>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ProductCard from "../ProductCard";
+import ProductCard from "../pages/ProductCard";
 
 export default function Products() {
   const [products, setProducts] = useState([]);

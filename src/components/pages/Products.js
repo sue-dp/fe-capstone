@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ProductCard from "../pages/ProductCard";
+import ProductSingle from "../pages/Product";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -13,7 +15,7 @@ export default function Products() {
         console.error("Error", err);
       });
   }, []);
-  // console.log(products);
+  console.log(products);
 
   function shuffleProducts(array) {
     const shuffledProducts = [...array];
@@ -30,8 +32,12 @@ export default function Products() {
   const renderProducts = () => {
     const shuffledList = shuffleProducts(products);
     const randomProducts = shuffledList.slice(0, 3);
+    console.log(randomProducts);
     return randomProducts.map((product) => (
-      <ProductCard key={product.id} data={product} />
+      <Link to={`/product/${product.id}`} key={product.id}>
+        <ProductCard data={product} />
+      </Link>
+      // (<ProductSingle key={product.id} data={product} />)
     ));
   };
 

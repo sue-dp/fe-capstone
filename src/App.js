@@ -9,6 +9,7 @@ import Home from "./components/pages/Home";
 import ShoppingCart from "./components/pages/ShoppingCart";
 import ContactUs from "./components/pages/Contact";
 import Footer from "./components/navigation/Footer";
+import Product from "./components/pages/Product";
 
 export default function App() {
   return (
@@ -22,6 +23,12 @@ export default function App() {
           <Route path="/shoppingCart" component={ShoppingCart} />
           <Route path="/contact" component={ContactUs} />
           <Route path="/about" component={About} />
+          <Route
+            path="/product/:id"
+            render={(routeProps) => <Product data={{}} {...routeProps} />}
+          />
+
+          {/* {/* <Route path for product page passing props for the actual product}  */}
         </Switch>
       </Router>
       <Footer />

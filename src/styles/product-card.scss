@@ -11,26 +11,30 @@
   border-radius: 5px;
   background-color: $white;
 
-  .name-and-link {
-    font-size: 24px;
-    padding-bottom: 5%;
-  }
+  .a {
+    text-decoration: none;
 
-  img {
-    width: auto;
-    height: 20vh;
-  }
+    .name-and-link {
+      font-size: 24px;
+      padding-bottom: 5%;
+    }
 
-  .description {
-    padding: 2%;
-  }
+    img {
+      width: auto;
+      height: 20vh;
+    }
 
-  .price {
-    padding: 2%;
-    font-size: 20px;
-  }
+    .description {
+      padding: 2%;
+    }
 
-  .add-cart-btn {
-    margin-bottom: 5%;
+    .price {
+      padding: 2%;
+      font-size: 20px;
+    }
+
+    .add-cart-btn {
+      margin-bottom: 5%;
+    }
   }
 }

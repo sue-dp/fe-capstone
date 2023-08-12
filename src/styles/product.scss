@@ -1,12 +1,13 @@
-.card-cont {
+.single-prod-cont {
   font-family: "Playfair";
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30vw;
-  height: 45vh;
-  margin: 2%;
+  width: 75vw;
+  height: 65vh;
+  margin-top: 1.5%;
+  margin-left: 12.5vw;
   border: 1px solid $darkgrey;
   border-radius: 5px;
   background-color: $white;

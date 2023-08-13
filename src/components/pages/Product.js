@@ -1,4 +1,12 @@
-export default function ProductSingle({ data }) {
+import { Link } from "react-router-dom";
+
+export default function ProductSingle({ data }, props) {
+  // function renderSingleProduct() {
+  //   return () => {
+  //     if (props.match.params.slug)
+  //   }
+  // }
+  // console.log(props);
   console.log(data);
   return (
     <div className="single-prod-cont">
@@ -7,7 +15,9 @@ export default function ProductSingle({ data }) {
       <div className="description">{data.description}</div>
       <div className="price">${data.price}</div>
       <button className="add-cart-btn">Add to Cart</button>
-      <button className="back-btn">Back to Products</button>
+      <button className="back-btn" onClick={() => props.history.goBack()}>
+        Back to Products
+      </button>
     </div>
   );
 }

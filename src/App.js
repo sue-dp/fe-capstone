@@ -24,8 +24,10 @@ export default function App() {
           <Route path="/contact" component={ContactUs} />
           <Route path="/about" component={About} />
           <Route
-            path="/product/:id"
-            render={(routeProps) => <Product data={{}} {...routeProps} />}
+            path="/products/:slug"
+            render={(routeProps) => (
+              <Product data={{ ...routeProps }} {...routeProps} />
+            )}
           />
 
           {/* {/* <Route path for product page passing props for the actual product}  */}

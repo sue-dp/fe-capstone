@@ -34,9 +34,11 @@ export default function Products() {
     const randomProducts = shuffledList.slice(0, 3);
     console.log(randomProducts);
     return randomProducts.map((product) => (
-      <Link to={`/product/${product.id}`} key={product.id}>
+      <div key={product.id}>
+        {/* // <Link to={`/product/${product.id}`} key={product.id}> */}
         <ProductCard data={product} />
-      </Link>
+      </div>
+      // </Link>
       // (<ProductSingle key={product.id} data={product} />)
     ));
   };

@@ -1,0 +1,70 @@
+.page-cont {
+  font-family: "Playfair";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 100%;
+  margin: 2.79% 1.5%;
+
+  .single-prod-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60vh;
+    border: 1px solid $darkgrey;
+    border-radius: 5px;
+    background-color: $white;
+
+    .name-and-link {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 0.5%;
+    }
+
+    img {
+      width: auto;
+      height: 20vh;
+    }
+
+    .description {
+      padding: 2%;
+      font-size: 20px;
+    }
+
+    .price {
+      padding: 2%;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .single-prod-action-btns {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 5%;
+
+      .back-btn {
+        margin: 0 5%;
+        width: 15vw;
+        height: 5vh;
+
+        &:hover {
+          border-radius: 23px;
+        }
+      }
+
+      .add-cart-btn {
+        margin: 0 5%;
+        width: 15vw;
+        height: 5vh;
+
+        &:hover {
+          border-radius: 23px;
+        }
+      }
+    }
+  }
+}

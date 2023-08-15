@@ -6,7 +6,7 @@
   align-items: center;
   background-color: lightgray;
   width: auto;
-  height: 70vh;
+  height: 100%;
 
   .search {
     width: 30vw;
@@ -19,9 +19,16 @@
 
   .search-results {
     font-size: 20px;
-    // This needs to be hidden until there are acutally search results..
+    font-weight: bold;
     padding-top: 1%;
+    height: 100%;
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+    }
   }
+
   .product-card-cont {
     display: flex;
     flex-direction: row;

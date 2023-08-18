@@ -1,23 +1,10 @@
 import { useState, useEffect } from "react";
+
 import ProductCard from "../pages/ProductCard";
-import SingleProduct from "./SingleProduct";
 
 export default function Products(props) {
   const [search, setSearch] = useState("");
   const [filteredProds, setFilteredProds] = useState([]);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        props.setProducts(data);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.error("Error", err);
-      });
-  }, []);
-  console.log(props.products);
 
   useEffect(() => {
     const filtered = props.products.filter((product) =>
@@ -29,30 +16,19 @@ export default function Products(props) {
   const renderFilteredProducts = () => {
     return filteredProds.map((product) => (
       <div key={product.id}>
-        <ProductCard data={product} />
+        <ProductCard data={product} addToCart={props.addToCart} />
       </div>
     ));
   };
 
-  function shuffleProducts(array) {
-    const shuffledProducts = [...array];
-
-    for (let product = shuffledProducts.length - 1; product > 0; product--) {
-      const selected = Math.floor(Math.random() * (product + 1));
-      const thirdValue = shuffledProducts[product];
-      shuffledProducts[product] = shuffledProducts[selected];
-      shuffledProducts[selected] = thirdValue;
-    }
-    return shuffledProducts;
-  }
-
   const renderProducts = () => {
-    const shuffledList = shuffleProducts(props.products);
-    const randomProducts = shuffledList.slice(0, 3);
-    console.log(randomProducts);
-    return randomProducts.map((product) => (
+    return props.products.map((product) => (
       <div key={product.id}>
-        <ProductCard data={product} />
+        <ProductCard
+          data={product}
+          addToCart={props.addToCart}
+          cartItems={props.cartItems}
+        />
       </div>
     ));
   };

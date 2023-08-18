@@ -13,6 +13,78 @@ import SingleProduct from "./components/pages/SingleProduct";
 
 export default function App() {
   const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [subTotal, setSubTotal] = useState(0);
+  const [itemTotal, setItemTotal] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((product) => {
+          product["quantity"] = 1;
+        });
+        setProducts(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error("Error", err);
+      });
+  }, []);
+
+  useEffect(() => {
+    function subTotalCalc() {
+      let subTotal = 0;
+      let itemTotal = 0;
+
+      cartItems.forEach((cartItem) => {
+        itemTotal = cartItem.price * cartItem.quantity;
+        subTotal = subTotal + itemTotal;
+      });
+
+      return { subTotal, itemTotal };
+    }
+
+    const { subTotal, itemTotal } = subTotalCalc();
+
+    setSubTotal(subTotal);
+    setItemTotal(itemTotal);
+  }, [cartItems]);
+
+  const updateQuantity = (productId, newQuantity) => {
+    const updatedCartItems = cartItems.map((item) => {
+      if (item.id === productId) {
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+
+    setCartItems(updatedCartItems);
+  };
+
+  const removeFromCart = (productId) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== productId);
+    setCartItems(updatedCartItems);
+  };
+
+  const addToCart = (product) => {
+    const currentCartItem = cartItems.find((item) => item.id === product.id);
+
+    if (currentCartItem) {
+      const updatedCartItems = cartItems.map((item) => {
+        if (item.id === product.id) {
+          return { ...item, quantity: (item.quantity += 1) };
+        }
+        return item;
+      });
+      setCartItems(updatedCartItems);
+      //
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  };
 
   return (
     <div className="app">
@@ -28,11 +100,31 @@ export default function App() {
               <Products
                 products={products}
                 setProducts={setProducts}
+                addToCart={addToCart}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
                 {...routeProps}
               />
             )}
           />
-          <Route path="/shoppingCart" component={ShoppingCart} />
+          <Route
+            path="/shoppingCart"
+            render={(routeProps) => (
+              <ShoppingCart
+                data={products}
+                cartItems={cartItems}
+                total={total}
+                setCartItems={setCartItems}
+                quantity={quantity}
+                setQuantity={setQuantity}
+                updateQuantity={updateQuantity}
+                subTotal={subTotal}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+                {...routeProps}
+              />
+            )}
+          />
           <Route path="/contact" component={ContactUs} />
           <Route path="/about" component={About} />
           <Route
@@ -44,7 +136,13 @@ export default function App() {
               );
 
               if (selectedProduct) {
-                return <SingleProduct data={selectedProduct} {...routeProps} />;
+                return (
+                  <SingleProduct
+                    data={selectedProduct}
+                    addToCart={addToCart}
+                    {...routeProps}
+                  />
+                );
               } else {
                 return <div>Product Not Found</div>;
               }

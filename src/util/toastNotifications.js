@@ -8,8 +8,8 @@ export const messageSentToast = () => {
     <div className="message-sent-toast">Your Message Has Been Sent</div>,
     {
       hideProgressBar: true,
-      autoClose: 2987,
-      position: "bottom-left",
+      autoClose: 2000,
+      position: "top-left",
     }
   );
 };
@@ -17,7 +17,7 @@ export const messageSentToast = () => {
 export const successfulToast = (message) => {
   toast.success(<div className="successful-toast">{message}</div>, {
     hideProgressBar: true,
-    autoClose: 2987,
-    position: "bottom-left",
+    autoClose: 2000,
+    position: "top-left",
   });
 };

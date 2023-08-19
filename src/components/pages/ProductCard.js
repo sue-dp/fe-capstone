@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { successfulToast } from "../../util/toastNotifications";
 
+import { successfulToast } from "../../util/toastNotifications";
 import CartCard from "./CartCard";
 
 export default function ProductCard(props) {
@@ -36,25 +36,6 @@ export default function ProductCard(props) {
         }
       }
     }
-    // props.cartItems.find((item) => item.id === props.data.id);
-    // if (cartItem) {
-    //   return (
-    //     <CartCard
-    //       data={props.data}
-    //       updateQuantity={props.updateQuantity}
-    //       removeFromCart={props.removeFromCart}
-    //       cartItems={props.cartItems}
-    //     />
-    //   );
-    // } else {
-    //   return (
-    //     <CartCard
-    //       data={props.data}
-    //       removeFromCart={props.removeFromCart}
-    //       cartItems={props.cartItems}
-    //     />
-    //   );
-    // }
   };
 
   return (

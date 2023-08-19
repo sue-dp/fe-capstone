@@ -17,7 +17,7 @@ export default function App() {
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [itemTotal, setItemTotal] = useState(0);
-  const [quantity, setQuantity] = useState(1);
+  //  c       const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -115,8 +115,6 @@ export default function App() {
                 cartItems={cartItems}
                 total={total}
                 setCartItems={setCartItems}
-                quantity={quantity}
-                setQuantity={setQuantity}
                 updateQuantity={updateQuantity}
                 subTotal={subTotal}
                 addToCart={addToCart}

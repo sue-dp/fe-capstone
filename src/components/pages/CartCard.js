@@ -1,5 +1,5 @@
 export default function CartCard(props) {
-  const totalPrice = (props.data.price * props.quantity).toFixed(2);
+  const totalPrice = (props.data.price * props.data.quantity).toFixed(2);
 
   const truncate = (text, maxLength) => {
     if (text.length <= maxLength) {
@@ -9,17 +9,20 @@ export default function CartCard(props) {
   };
 
   const handleMinus = () => {
-    if (props.quantity > 1) {
-      props.setQuantity((pQ) => pQ - 1);
+    if (props.data.quantity > 1) {
+      props.updateQuantity(props.data.id, props.data.quantity - 1);
     }
   };
 
   const handlePlus = () => {
-    props.setQuantity((pQ) => pQ + 1);
+    props.updateQuantity(props.data.id, props.data.quantity + 1);
   };
+
+  console.log(props.data.quantity);
 
   return (
     <div className="cart-item">
+      {console.log(props.data.quantity)}
       <div className="item-wrapper">
         <img src={props.data.image} alt="Product" />
         <p className="name-and-link">{truncate(props.data.title, 25)}</p>
@@ -29,7 +32,7 @@ export default function CartCard(props) {
           <button className="minus-btn" onClick={handleMinus}>
             -
           </button>
-          <div className="item-quantity">{props.quantity}</div>
+          <div className="item-quantity">{props.data.quantity}</div>
           <button className="add-btn" onClick={handlePlus}>
             +
           </button>

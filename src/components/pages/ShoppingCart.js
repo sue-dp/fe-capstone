@@ -1,12 +1,11 @@
 import CartCard from "./CartCard";
 
 export default function ShoppingCart(props) {
-  // const formatPrice = props.data.price.toFixed(2);
-
   return (
     <div className="cart-cont">
       <h3>Your Cart</h3>
       <div className="cart-wrapper">
+        {console.log(props.cartItems)}
         {props.cartItems.map((product) => (
           <CartCard
             key={product.id}
@@ -14,8 +13,7 @@ export default function ShoppingCart(props) {
             cartItems={props.cartItems}
             updateQuantity={props.updateQuantity}
             removeFromCart={props.removeFromCart}
-            quantity={props.quantity}
-            setQuantity={props.setQuantity}
+            quantity={product.quantity}
           />
         ))}
       </div>

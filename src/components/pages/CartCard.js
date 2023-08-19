@@ -1,3 +1,6 @@
+import { errorToast } from "../../util/toastNotifications";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function CartCard(props) {
   const totalPrice = (props.data.price * props.data.quantity).toFixed(2);
 
@@ -11,6 +14,10 @@ export default function CartCard(props) {
   const handleMinus = () => {
     if (props.data.quantity > 1) {
       props.updateQuantity(props.data.id, props.data.quantity - 1);
+    } else if (props.data.quantity <= 1) {
+      errorToast(
+        "Please click the Trash Icon to remove this item from your cart!"
+      );
     }
   };
 
@@ -30,11 +37,11 @@ export default function CartCard(props) {
         <div className="price">${totalPrice}</div>
         <div className="btn-wrapper">
           <button className="minus-btn" onClick={handleMinus}>
-            -
+            - {/* <FontAwesomeIcon icon="fa-solid fa-minus" /> */}
           </button>
           <div className="item-quantity">{props.data.quantity}</div>
           <button className="add-btn" onClick={handlePlus}>
-            +
+            + {/* <FontAwesomeIcon icon="fa-solid fa-plus" /> */}
           </button>
         </div>
       </div>

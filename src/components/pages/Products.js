@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import ProductCard from "../pages/ProductCard";
 
@@ -35,7 +36,7 @@ export default function Products(props) {
   };
 
   if (filter === "default") {
-    renderProducts();
+    props.products.sort((a, b) => a.id - b.id);
   }
   if (filter.includes("1")) {
     props.products.sort((a, b) => a.price - b.price);
@@ -43,7 +44,7 @@ export default function Products(props) {
     props.products.sort((a, b) => b.price - a.price);
   } else if (filter.includes("3")) {
     props.products.sort((a, b) => a.title.localeCompare(b.title));
-  } else if (filter.includes("3")) {
+  } else if (filter.includes("4")) {
     props.products.sort((a, b) => b.title.localeCompare(a.title));
   }
 

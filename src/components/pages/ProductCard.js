@@ -44,7 +44,6 @@ export default function ProductCard(props) {
       <img src={props.data.image} alt="Product" />
       <div className="description">{truncate(props.data.description, 40)}</div>
       <div className="price">${formatPrice}</div>
-      {renderCartCard()}
       <div className="action-btns">
         <Link to={`/products/${props.data.id}`}>
           <button className="more-info-btn">More Info</button>

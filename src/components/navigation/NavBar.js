@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import WhiteLogo from "../../images/whiteBackgroundLogo.png";
 
@@ -6,7 +7,9 @@ export default function NavBar(props) {
   return (
     <div className="navbar-cont">
       <div className="logo">
-        <img src={WhiteLogo} alt="Silk Logo with moth" />
+        <Link to={"/"}>
+          <img src={WhiteLogo} alt="Silk Logo with moth" />
+        </Link>
       </div>
       <div className="nav-links">
         <button>

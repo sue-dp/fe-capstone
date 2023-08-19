@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { fa-magnifying-glass}
 
 import "./styles/app.scss";
 import NavBar from "./components/navigation/NavBar";
@@ -17,7 +19,8 @@ export default function App() {
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [itemTotal, setItemTotal] = useState(0);
-  //  c       const [quantity, setQuantity] = useState(1);
+
+  let updatedCartItems = [];
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -32,6 +35,13 @@ export default function App() {
       .catch((err) => {
         console.error("Error", err);
       });
+  }, []);
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cartItems");
+    if (storedCart) {
+      setCartItems(JSON.parse(storedCart));
+    }
   }, []);
 
   useEffect(() => {
@@ -54,7 +64,7 @@ export default function App() {
   }, [cartItems]);
 
   const updateQuantity = (productId, newQuantity) => {
-    const updatedCartItems = cartItems.map((item) => {
+    updatedCartItems = cartItems.map((item) => {
       if (item.id === productId) {
         return { ...item, quantity: newQuantity };
       }
@@ -65,8 +75,9 @@ export default function App() {
   };
 
   const removeFromCart = (productId) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== productId);
+    updatedCartItems = cartItems.filter((item) => item.id !== productId);
     setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
   const addToCart = (product) => {
@@ -80,10 +91,18 @@ export default function App() {
         return item;
       });
       setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
       //
     } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
+      setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     }
+  };
+
+  const checkOut = () => {
+    setCartItems([]);
+    localStorage.removeItem("cartItems");
   };
 
   return (
@@ -108,6 +127,7 @@ export default function App() {
             )}
           />
           <Route
+            exact
             path="/shoppingCart"
             render={(routeProps) => (
               <ShoppingCart
@@ -119,6 +139,7 @@ export default function App() {
                 subTotal={subTotal}
                 addToCart={addToCart}
                 removeFromCart={removeFromCart}
+                checkOut={checkOut}
                 {...routeProps}
               />
             )}

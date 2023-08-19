@@ -1,7 +1,16 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { fa-magnifying-glass}
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faCartPlus,
+  faCartShopping,
+  faHouse,
+  faMagnifyingGlass,
+  faMinus,
+  faPlus,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./styles/app.scss";
 import NavBar from "./components/navigation/NavBar";
@@ -12,6 +21,16 @@ import ShoppingCart from "./components/pages/ShoppingCart";
 import ContactUs from "./components/pages/Contact";
 import Footer from "./components/navigation/Footer";
 import SingleProduct from "./components/pages/SingleProduct";
+
+library.add(
+  faHouse,
+  faMagnifyingGlass,
+  faMinus,
+  faPlus,
+  faTrashCan,
+  faCartShopping,
+  faCartPlus
+);
 
 export default function App() {
   const [products, setProducts] = useState([]);

@@ -25,7 +25,7 @@ export const successfulToast = (message) => {
 export const errorToast = (message) => {
   toast.error(<div className="error-toast">{message}</div>, {
     hideProgressBar: true,
-    autoClose: 2000,
+    autoClose: 3000,
     position: "top-left",
   });
 };

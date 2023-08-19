@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { successfulToast } from "../../util/toastNotifications";
 import CartCard from "./CartCard";
@@ -55,7 +56,7 @@ export default function ProductCard(props) {
             successfulToast("Item Added To Cart");
           }}
         >
-          Add to Cart
+          <FontAwesomeIcon icon="fa-solid fa-cart-plus" />
         </button>
       </div>
     </div>

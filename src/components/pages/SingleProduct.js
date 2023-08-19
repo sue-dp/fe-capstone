@@ -1,4 +1,5 @@
 import { successfulToast } from "../../util/toastNotifications";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SingleProduct(props) {
   const formatPrice = props.data.price.toFixed(2);
@@ -18,7 +19,7 @@ export default function SingleProduct(props) {
               successfulToast("Item Added To Cart");
             }}
           >
-            Add to Cart
+            <FontAwesomeIcon icon="fa-solid fa-cart-plus" />
           </button>
           <button className="back-btn" onClick={() => props.history.goBack()}>
             Back to Products

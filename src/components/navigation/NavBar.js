@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import WhiteLogo from "../../images/whiteBackgroundLogo.png";
 
@@ -14,14 +15,16 @@ export default function NavBar(props) {
       <div className="nav-links">
         <button>
           <NavLink exact to="/">
-            Home
+            <FontAwesomeIcon icon="fa-solid fa-house" />
           </NavLink>
         </button>
         <button>
           <NavLink to="/products">Products</NavLink>
         </button>
         <button>
-          <NavLink to="/shoppingCart">Shopping Cart</NavLink>
+          <NavLink to="/shoppingCart">
+            <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
+          </NavLink>
         </button>
         <button>
           <NavLink to="/contact">Contact Us</NavLink>

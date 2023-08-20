@@ -35,7 +35,9 @@ export default function CartCard(props) {
     <div className="cart-item">
       {console.log(props.data.quantity)}
       <div className="item-wrapper">
-        <img src={props.data.image} alt="Product" />
+        <div className="item-image">
+          <img src={props.data.image} alt="Product" />
+        </div>
         <p className="name-and-link">{truncate(props.data.title, 25)}</p>
 
         <div className="price">${totalPrice}</div>

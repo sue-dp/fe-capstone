@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import ProductCard from "../pages/ProductCard";
 
@@ -54,11 +54,10 @@ export default function Products(props) {
         <input
           className="search"
           type="text"
-          placeholder="Search..."
+          placeholder=""
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
         <select
           className="filter-select"
           onChange={(e) => setFilter(e.target.value)}
@@ -72,7 +71,7 @@ export default function Products(props) {
       </div>
       {search.length > 0 ? (
         <div className="search-results">
-          <p>Search Results:</p>
+          <p className="search-heading">Search Results:</p>
           <div className="results">{renderFilteredProducts()}</div>
         </div>
       ) : (

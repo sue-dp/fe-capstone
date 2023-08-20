@@ -6,7 +6,9 @@ import { successfulToast } from "../../util/toastNotifications";
 export default function ShoppingCart(props) {
   let shippingAmt = 0;
 
-  if (props.subTotal <= 7.95) {
+  if (props.subTotal === 0) {
+    shippingAmt = 0;
+  } else if (props.subTotal > 0 && props.subTotal <= 7.95) {
     shippingAmt = 5;
   } else if (props.subTotal > 7.95 && props.subTotal < 99.99) {
     shippingAmt = 15.99;
@@ -39,23 +41,32 @@ export default function ShoppingCart(props) {
       </div>
       <div className="cart-total">
         <div className="sub-total">
-          Sub-total = ${props.subTotal.toFixed(2)}
+          <div className="text">Sub-total =</div>
+          <div className="value">${props.subTotal.toFixed(2)}</div>
         </div>
-        <div className="shipping-amt">Shipping = ${shippingAmt.toFixed(2)}</div>
+        <div className="shipping-amt">
+          <div className="text">Shipping =</div>{" "}
+          <div className="value">${shippingAmt.toFixed(2)}</div>
+        </div>
         <div className="total">
-          Grand Total = ${(props.subTotal + 15.99).toFixed(2)}
+          <div className="text">Grand Total =</div>
+          <div className="value">
+            ${(props.subTotal + shippingAmt).toFixed(2)}
+          </div>
         </div>
-        <Link to={"/products"}>
-          <button
-            className="checkout-btn"
-            onClick={() => {
-              props.checkOut();
-              successfulToast("THANK YOU for your order!");
-            }}
-          >
-            Checkout
-          </button>
-        </Link>
+        <div className="checkout-btn">
+          <Link to={"/products"}>
+            <button
+              className="checkout-btn"
+              onClick={() => {
+                props.checkOut();
+                successfulToast("THANK YOU for your order!");
+              }}
+            >
+              Checkout
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

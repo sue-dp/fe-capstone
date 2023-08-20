@@ -8,19 +8,46 @@
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  margin-top: 15vh;
+  margin: 15vh 0 0 0;
+  padding-bottom: 15vh;
 
   h3 {
     color: $black;
     font-size: 40px;
   }
   .cart-total {
-    font-size: 24px;
+    font-size: 30px;
     margin: 3.5% 0;
     text-align: right;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
 
-    div {
-      margin-bottom: 2%;
+    .sub-total,
+    .shipping-amt,
+    .total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 23vw;
+    }
+
+    .text {
+      width: 12vw;
+      text-align: right;
+    }
+
+    .checkout-btn {
+      button {
+        width: 15vw;
+        height: 4vh;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 10%;
+      }
     }
   }
 }

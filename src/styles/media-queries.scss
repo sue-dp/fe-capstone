@@ -160,3 +160,28 @@
     height: 100%;
   }
 }
+
+.page-cont {
+  .single-prod-cont {
+    height: 60vh;
+
+    .name-and-link {
+      font-size: 20px;
+    }
+
+    .description {
+      font-size: 16px;
+    }
+
+    .single-prod-action-btns {
+      margin-bottom: 2%;
+      .back-btn {
+        width: 20vw;
+      }
+
+      .add-cart-btn {
+        width: 20vw;
+      }
+    }
+  }
+}

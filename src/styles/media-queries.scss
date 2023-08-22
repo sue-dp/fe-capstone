@@ -1,0 +1,162 @@
+@media screen and (max-width: 430px) {
+  button {
+    font-size: 8px;
+  }
+
+  .navbar-cont {
+    .logo {
+      img {
+        height: 18vh;
+        width: auto;
+      }
+    }
+
+    .nav-links {
+      width: 60vw;
+
+      button {
+        width: 11vw;
+      }
+    }
+  }
+
+  .footer-cont {
+    font-size: 12px;
+  }
+
+  .home-cont {
+    background-size: contain;
+
+    .silk-intro {
+      font-size: 15px;
+    }
+    .enjoy {
+      font-size: 15px;
+    }
+  }
+
+  .products-cont {
+    .search-cont {
+      .search {
+        padding-left: 12%;
+        width: 40vw;
+      }
+
+      .filter-select {
+        width: 25vw;
+      }
+    }
+
+    .search-results {
+      .results {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .product-card-cont {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .card-cont {
+    width: 75vw;
+    height: 55vh;
+
+    .action-btns {
+      .more-info-btn,
+      .add-cart-btn {
+        width: 20vw;
+        height: 5vh;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .cart-cont {
+    h3 {
+      font-size: 30px;
+    }
+
+    .cart-total {
+      font-size: 18px;
+      width: 75vw;
+
+      .sub-total,
+      .shipping-amt,
+      .total {
+        width: 45vw;
+      }
+
+      .text {
+        width: 25vw;
+      }
+
+      .checkout-btn {
+        button {
+          width: 20vw;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .cart-item {
+    width: 85vw;
+
+    .item-wrapper {
+      .name-and-link,
+      .price {
+        font-size: 12px;
+      }
+
+      .btn-wrapper {
+        button {
+          width: 5vw;
+          height: 4vh;
+          font-size: 12px;
+        }
+
+        .item-quantity {
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .remove-from-cart {
+      .remove-btn {
+        width: 5vw;
+        height: 4vh;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .contact-cont {
+    .form {
+      width: 75vw;
+
+      input {
+        width: 55vw;
+      }
+
+      textarea {
+        width: 55vw;
+      }
+    }
+  }
+
+  .about-cont {
+    height: 100%;
+  }
+}

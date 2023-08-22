@@ -17,8 +17,8 @@ export default function CartCard(props) {
     } else if (props.data.quantity <= 1) {
       const errorMessage = (
         <div>
-          "Please click the <FontAwesomeIcon icon="fa-solid fa-trash-can" /> to
-          remove this item from your cart!"
+          Please click the <FontAwesomeIcon icon="fa-solid fa-trash-can" /> to
+          remove this item from your cart!
         </div>
       );
       errorToast(errorMessage);
@@ -29,11 +29,8 @@ export default function CartCard(props) {
     props.updateQuantity(props.data.id, props.data.quantity + 1);
   };
 
-  console.log(props.data.quantity);
-
   return (
     <div className="cart-item">
-      {console.log(props.data.quantity)}
       <div className="item-wrapper">
         <div className="item-image">
           <img src={props.data.image} alt="Product" />

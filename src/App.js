@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCartPlus,
@@ -49,7 +48,6 @@ export default function App() {
           product["quantity"] = 1;
         });
         setProducts(data);
-        console.log(data);
       })
       .catch((err) => {
         console.error("Error", err);
@@ -111,7 +109,6 @@ export default function App() {
       });
       setCartItems(updatedCartItems);
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-      //
     } else {
       const updatedCartItems = [...cartItems, { ...product, quantity: 1 }];
       setCartItems(updatedCartItems);
@@ -128,7 +125,6 @@ export default function App() {
     <div className="app">
       <Router>
         <Route render={(routeProps) => <NavBar string="" {...routeProps} />} />
-
         <Switch>
           <Route exact path="/" component={Home} />
           <Route

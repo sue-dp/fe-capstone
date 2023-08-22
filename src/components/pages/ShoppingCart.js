@@ -8,9 +8,9 @@ export default function ShoppingCart(props) {
 
   if (props.subTotal === 0) {
     shippingAmt = 0;
-  } else if (props.subTotal > 0 && props.subTotal <= 7.95) {
+  } else if (props.subTotal > 0 && props.subTotal <= 19.99) {
     shippingAmt = 5;
-  } else if (props.subTotal > 7.95 && props.subTotal < 99.99) {
+  } else if (props.subTotal > 19.99 && props.subTotal < 99.99) {
     shippingAmt = 15.99;
   } else {
     shippingAmt = 0;
@@ -20,7 +20,6 @@ export default function ShoppingCart(props) {
     <div className="cart-cont">
       <h3>Your Cart</h3>
       <div className="cart-wrapper">
-        {console.log(props.cartItems)}
         {props.cartItems.length > 0 ? (
           props.cartItems.map((product) => (
             <CartCard

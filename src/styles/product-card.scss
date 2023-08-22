@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   width: 25vw;
-  height: 45vh;
+  height: 50vh;
   margin: 2%;
   border: 1px solid $darkgrey;
   border-radius: 5px;
@@ -15,6 +15,7 @@
     font-size: 24px;
     padding-bottom: 5%;
     font-weight: bold;
+    text-align: center;
   }
 
   img {
@@ -32,6 +33,7 @@
     font-size: 20px;
     font-weight: bold;
   }
+
   .action-btns {
     display: flex;
     justify-content: space-around;

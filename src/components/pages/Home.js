@@ -1,5 +1,3 @@
-// import { useState, useEffect } from "react";
-
 export default function Home() {
   return (
     <div className="home-cont">
@@ -10,7 +8,6 @@ export default function Home() {
         bring you new and exciting products to enrich your life.
       </div>
       <div className="enjoy"> We hope you enjoy shopping with us!</div>
-      {/* <h3>You are on the Home Page</h3> */}
     </div>
   );
 }

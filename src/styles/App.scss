@@ -1,5 +1,4 @@
 @import "./variables.scss";
-@import "./mixins.scss";
 @import "./theme.scss";
 @import "./navbar.scss";
 @import "./footer.scss";
@@ -11,6 +10,7 @@
 @import "./shopping-cart.scss";
 @import "./cart-card.scss";
 @import "./about.scss";
+@import "./media-queries.scss";
 
 .App {
   text-align: center;

@@ -14,31 +14,6 @@ export default function ProductCard(props) {
 
   const formatPrice = props.data.price.toFixed(2);
 
-  const renderCartCard = () => {
-    if (props.cartItems !== []) {
-      for (let item in props.cartItems) {
-        if (item.id === props.data.id) {
-          return (
-            <CartCard
-              data={props.data}
-              updateQuantity={props.updateQuantity}
-              removeFromCart={props.removeFromCart}
-              cartItems={props.cartItems}
-            />
-          );
-        } else {
-          return (
-            <CartCard
-              data={props.data}
-              removeFromCart={props.removeFromCart}
-              cartItems={props.cartItems}
-            />
-          );
-        }
-      }
-    }
-  };
-
   return (
     <div className="card-cont">
       <p className="name-and-link">{truncate(props.data.title, 25)}</p>

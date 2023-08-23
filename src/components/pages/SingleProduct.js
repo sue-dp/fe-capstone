@@ -1,5 +1,6 @@
-import { successfulToast } from "../../util/toastNotifications";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { successfulToast } from "../../util/toastNotifications";
 
 export default function SingleProduct(props) {
   const formatPrice = props.data.price.toFixed(2);

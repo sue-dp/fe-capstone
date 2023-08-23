@@ -1,5 +1,6 @@
-import { errorToast } from "../../util/toastNotifications";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { errorToast } from "../../util/toastNotifications";
 
 export default function CartCard(props) {
   const totalPrice = (props.data.price * props.data.quantity).toFixed(2);
